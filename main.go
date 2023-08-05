@@ -12,7 +12,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	configs "nam_0508/config"
+	"nam_0508/internal/config"
 	"nam_0508/internal/endpoint/purchase"
 	wager2 "nam_0508/internal/endpoint/wager"
 	purchase2 "nam_0508/internal/service/purchase"
@@ -25,7 +25,7 @@ func main() {
 	defer func() {
 		log.Printf("application stopped after %s\n", time.Since(startedAt))
 	}()
-
+	
 	conf, err := configs.NewConfig()
 	if err != nil {
 		log.Print(err)

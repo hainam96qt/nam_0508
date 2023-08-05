@@ -10,7 +10,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: on-failure
     environment:
-      MYSQL_ROOT_HOST: '172.18.0.1'
+      MYSQL_ROOT_HOST: '127.0.0.1'
       MYSQL_ROOT_PASSWORD: mysql_db
       MYSQL_DATABASE: nam_0508
       MYSQL_USER: root
@@ -26,16 +26,14 @@ services:
       retries: 5
 
   nam-0508:
-    profiles: [ "all" ]
     build:
-      context: .
-      dockerfile: deployment/docker/Dockerfile
+      dockerfile: Dockerfile
     restart: on-failure
     container_name: nam-0508
+    volumes:
+      - ./config:/app/config
     hostname: nam-0508
     depends_on:
       - mysql-db
-    volumes:
-      - ./config/:/app/config/
     ports:
       - "8000:8000"

@@ -1,27 +1,35 @@
-# TODO: Change to aliased public ECR
-FROM golang:1.19 AS build-stage
+FROM golang:1.19 AS go_builder
+
+WORKDIR /app
+COPY . /app
+
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -o run
+
+FROM alpine:3.16
 
 WORKDIR /app
 
-COPY go.mod go.sum ./
-RUN go mod download
+COPY --from=go_builder ./app/run ./nam-0508
 
-COPY *.go ./
+RUN chmod +x /app/nam-0508
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
-
-# Run the tests in the container
-FROM build-stage AS run-test-stage
-RUN go test -v ./...
-
-
-WORKDIR /
-
-COPY --from=build-stage /docker-gs-ping /docker-gs-ping
-
-EXPOSE 8080
-
-USER nonroot:nonroot
-
-ENTRYPOINT ["/docker-gs-ping"]
 CMD ["/app/nam-0508"]
+
+
+#FROM golang:latest as builder
+#
+#WORKDIR /app
+#
+#COPY . .
+#
+#RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -o app
+#
+#FROM alpine
+#
+#RUN mkdir -p /app/config
+#
+#VOLUME /app/config
+#
+#COPY --from=builder /app/app /
+#
+#CMD ["/app"]

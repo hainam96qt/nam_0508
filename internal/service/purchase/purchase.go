@@ -3,7 +3,7 @@ package purchase
 import (
 	"database/sql"
 
-	configs "nam_0508/config"
+	"nam_0508/internal/config"
 	db "nam_0508/internal/repo/dbmodel"
 )
 

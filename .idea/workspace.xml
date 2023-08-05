@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd895c5f-37c9-4a5b-a01f-dc8da530780e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/endpoint/purchase/purchase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/endpoint/wager/wager.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/purchase/api-create-purchase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/purchase/purchase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/wager/api-create-wager.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/wager/api-list-wager.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/wager/wager.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/endpoint/authentication/authentication.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/endpoint/file/file.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/endpoint/upload-file/upload-file.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/endpoint/wager/wager.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/endpoint/wager/wager.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repo/dbmodel/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repo/dbmodel/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repo/dbmodel/metadata.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repo/dbmodel/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repo/dbmodel/models.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repo/dbmodel/query.sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repo/dbmodel/query.sql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repo/dbmodel/query/query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repo/dbmodel/query/query.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/authentication/authentication.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/authentication/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/authentication/registration.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/file/file.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/files/files.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/jwt/jwt.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/error/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/error/error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/password/password.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/response/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/response/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/20230805_INIT_DATA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/20230805_INIT_DATA.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/wager/api-list-wager.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/wager/api-list-wager.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +64,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508" />
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508\deployment\docker" />
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508\deployment" />
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508\internal" />
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508\env" />
     </key>
   </component>
   <component name="RunManager">

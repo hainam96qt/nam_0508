@@ -18,13 +18,9 @@ server:
   uploadSizeLimitByte: 5242880
 
 mysql:
-  host: 127.0.0.1
+  host: mysql-db
   port: 3306
   database: nam_0508
   user: root
   password: mysql_db
 
-jwt:
-  secretKey: "abcdef123"
-  accessTokenTLL: 1h
-  refreshTokenTLL: 168h

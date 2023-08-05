@@ -12,13 +12,6 @@ import (
 type Config struct {
 	Mysqldb mysql_db.DatabaseConfig `yaml:"mysql"`
 	Server  Server                  `yaml:"server"`
-	Jwt     Jwt                     `yaml:"jwt"`
-}
-
-type Jwt struct {
-	SecretKey       string        `yaml:"secretKey"`
-	AccessTokenTLL  time.Duration `yaml:"accessTokenTLL"`
-	RefreshTokenTLL time.Duration `yaml:"refreshTokenTLL"`
 }
 
 type Server struct {
@@ -42,7 +35,7 @@ func NewConfig() (*Config, error) {
 	config := &Config{}
 
 	// Open config file
-	file, err := os.Open("./config.yml")
+	file, err := os.Open("config/config.yml")
 	if err != nil {
 		return nil, err
 	}

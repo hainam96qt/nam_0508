@@ -29,7 +29,7 @@ func InitWagerHandler(r *chi.Mux, wagerSvc WagerService) {
 	wagerEndpoint := &Endpoint{
 		wagerSvc: wagerSvc,
 	}
-	r.Route("/api/v1/wagers", func(r chi.Router) {
+	r.Route("/wagers", func(r chi.Router) {
 		r.Post("/", wagerEndpoint.createWager)
 		r.Get("/", wagerEndpoint.listWagers)
 	})
