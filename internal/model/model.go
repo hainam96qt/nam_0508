@@ -4,37 +4,53 @@ import (
 	"time"
 )
 
-type Identity struct {
-	Username string `json:"username"`
-	USerID   int    `json:"user_id"`
+type Purchase struct {
+	ID          int32     `json:"id"`
+	WagerID     int32     `json:"wager_id"`
+	BuyingPrice float64   `json:"buying_price"`
+	BoughtAt    time.Time `json:"bought_at"`
 }
 
-type Success struct {
-	Message string `json:"message"`
+type Wager struct {
+	ID                  int32     `json:"id"`
+	TotalWagerValue     int32     `json:"total_wager_value"`
+	Odds                int32     `json:"odds"`
+	SellingPercentage   int32     `json:"selling_percentage"`
+	SellingPrice        float64   `json:"selling_price"`
+	CurrentSellingPrice float64   `json:"current_selling_price"`
+	PercentageSold      int32     `json:"percentage_sold"`
+	AmountSold          int32     `json:"amount_sold"`
+	PlacedAt            time.Time `json:"placed_at"`
 }
 
-type TokenPair struct {
-	AccessToken          string    `json:"access_token"`
-	AccessTokenExpiresAt time.Time `json:"access_token_expires_at"`
-
-	RefreshToken          string    `json:"refresh_token"`
-	RefreshTokenExpiresAt time.Time `json:"refresh_token_expires_at"`
+type CreateWagerRequest struct {
+	TotalWagerValue     int32   `json:"total_wager_value"`
+	Odds                int32   `json:"odds"`
+	SellingPercentage   int32   `json:"selling_percentage"`
+	SellingPrice        float64 `json:"selling_price"`
+	CurrentSellingPrice float64 `json:"current_selling_price"`
+	PercentageSold      int32   `json:"percentage_sold"`
+	AmountSold          int32   `json:"amount_sold"`
 }
 
-type CreateRegistrationRequest struct {
-	UserName string `json:"user_name"`
-	Password string `json:"password"`
+type CreateWagerResponse struct {
+	Wager
 }
 
-type CreateRegistrationResponse struct {
-	TokenPair
+type ListWagerRequest struct {
+	Page  int // from header
+	Limit int // from header
 }
 
-type LoginRequest struct {
-	UserName string `json:"user_name"`
-	Password string `json:"password"`
+type ListWagerResponse struct {
+	Wagers []Wager
 }
 
-type LoginResponse struct {
-	TokenPair
+type CreatePurchaseRequest struct {
+	WagerID     int32   // from header
+	BuyingPrice float64 `json:"buying_price"`
+}
+
+type CreatePurchaseResponse struct {
+	Purchase
 }

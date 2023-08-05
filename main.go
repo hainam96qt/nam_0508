@@ -13,13 +13,11 @@ import (
 	"github.com/go-chi/chi/v5"
 
 	configs "nam_0508/config"
-	authentication2 "nam_0508/internal/endpoint/authentication"
-	upload_file "nam_0508/internal/endpoint/file"
-	"nam_0508/internal/service/authentication"
-	upload_file2 "nam_0508/internal/service/file"
-	"nam_0508/internal/service/jwt"
+	"nam_0508/internal/endpoint/purchase"
+	wager2 "nam_0508/internal/endpoint/wager"
+	purchase2 "nam_0508/internal/service/purchase"
+	"nam_0508/internal/service/wager"
 	"nam_0508/pkg/db/mysql_db"
-	"nam_0508/pkg/midleware"
 )
 
 func main() {
@@ -65,7 +63,6 @@ func main() {
 
 func initHTTPServer(ctx context.Context, conf *configs.Config) (httpServer *http.Server, err error) {
 	r := chi.NewRouter()
-	midleware.AuthenticateMW = midleware.NewAuthenticateMiddleware(jwt.Algorithm.Alg(), conf.Jwt.SecretKey)
 
 	// create endpoint here
 	r.Get("/hello", func(w http.ResponseWriter, r *http.Request) {
@@ -79,13 +76,12 @@ func initHTTPServer(ctx context.Context, conf *configs.Config) (httpServer *http
 	}
 
 	// service
-	jwtService := jwt.NewJwtService(conf)
-	authSvc := authentication.NewAuthenticationService(conf, dbConn, jwtService)
-	uploadFileSvc := upload_file2.NewUploadFileService(conf, dbConn)
+	wagerSvc := wager.NewWagerService(conf, dbConn)
+	purchaseSvc := purchase2.NewPurchaseService(conf, dbConn)
 
 	// handler
-	authentication2.InitAuthenticationHandler(r, authSvc)
-	upload_file.InitAuthenticationHandler(r, uploadFileSvc)
+	wager2.InitWagerHandler(r, wagerSvc)
+	purchase.InitPurchaseHandler(r, purchaseSvc)
 
 	return &http.Server{
 		Addr:         conf.Server.Address,

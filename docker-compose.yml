@@ -24,3 +24,18 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+
+  nam-0508:
+    profiles: [ "all" ]
+    build:
+      context: .
+      dockerfile: deployment/docker/Dockerfile
+    restart: on-failure
+    container_name: nam-0508
+    hostname: nam-0508
+    depends_on:
+      - mysql-db
+    volumes:
+      - ./config/:/app/config/
+    ports:
+      - "8000:8000"

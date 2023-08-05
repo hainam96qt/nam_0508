@@ -7,20 +7,29 @@ INSERT INTO wagers (
     selling_price,
     current_selling_price,
     percentage_sold,
-    amount_sold,
-    placed_at,
-) VALUES (?,?,?,?,?,?,?,?,?);
+    amount_sold
+) VALUES (?,?,?,?,?,?,?,?);
 
 /* name: CreatePurchase :exec */
 INSERT INTO purchases (
-    id,
     wager_id,
     buying_price
-) VALUES (?,?,?);
-
+) VALUES (?,?);
 
 /* name: GetWager :one */
-SELECT * FROM wagers where id = ? LIMIT 1;
+SELECT * FROM wagers WHERE id = ?;
+
+/* name: GetWagerForUpdate :one */
+SELECT * FROM wagers WHERE id = ? FOR UPDATE;
+
+/* name: ListWagers :many */
+SELECT * FROM wagers LIMIT ? OFFSET ?;
 
 /* name: GetPurchase :one */
 SELECT * FROM purchases where id = ? LIMIT 1;
+
+/* name: LastInsertID :one */
+select last_insert_id();
+
+/* name: UpdatePurchaseWager :exec */
+UPDATE wagers SET current_selling_price = ?, percentage_sold = ?, amount_sold = ? WHERE id = ?;

@@ -2,14 +2,20 @@ package error
 
 type XError struct {
 	ErrorMessage string `json:"error"`
+	HTTPStatus   int
 }
 
-func (e *XError) Error() string {
+func (e XError) Error() string {
 	return e.ErrorMessage
 }
 
-func NewXError(s string) XError {
+func (e XError) GetHTTPStatus() int {
+	return e.HTTPStatus
+}
+
+func NewXError(s string, httpStatus int) XError {
 	return XError{
 		ErrorMessage: s,
+		HTTPStatus:   httpStatus,
 	}
 }
