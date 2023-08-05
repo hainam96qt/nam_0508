@@ -5,8 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd895c5f-37c9-4a5b-a01f-dc8da530780e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/endpoint/authentication/authentication.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/endpoint/file/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/endpoint/upload-file/upload-file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repo/dbmodel/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repo/dbmodel/metadata.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repo/dbmodel/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repo/dbmodel/query.sql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repo/dbmodel/query/query.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/authentication/authentication.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/authentication/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/authentication/registration.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/file/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/files/files.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/jwt/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/db/mysql_db/mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/error/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/midleware/midleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/convert-type/convert-type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/password/password.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/request/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/response/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/20230805_INIT_DATA.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +74,15 @@
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "//wsl$/Ubuntu-20.04/home/hainam96qt/ws/nam_0508",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.sourceCode.CSS"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
