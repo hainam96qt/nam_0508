@@ -15,10 +15,11 @@ func (s *Service) CreateWager(ctx context.Context, req *model.CreateWagerRequest
 	}
 
 	newWager := db.CreateWagerParams{
-		TotalWagerValue:   req.TotalWagerValue,
-		Odds:              req.Odds,
-		SellingPercentage: req.SellingPercentage,
-		SellingPrice:      req.SellingPrice,
+		TotalWagerValue:     req.TotalWagerValue,
+		Odds:                req.Odds,
+		SellingPercentage:   req.SellingPercentage,
+		SellingPrice:        req.SellingPrice,
+		CurrentSellingPrice: req.SellingPrice,
 	}
 	newWagerDB, err := s.wagerRepo.CreateWager(ctx, newWager)
 	if err != nil {
@@ -48,7 +49,7 @@ func validateWager(req *model.CreateWagerRequest) error {
 
 func convertWagerDBToAPI(wager db.Wager) model.Wager {
 	return model.Wager{
-		ID:                  int32(wager.ID),
+		ID:                  wager.ID,
 		TotalWagerValue:     wager.TotalWagerValue,
 		Odds:                wager.Odds,
 		SellingPercentage:   wager.SellingPercentage,

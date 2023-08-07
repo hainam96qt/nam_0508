@@ -24,10 +24,8 @@ func TestService_CreateWager(t *testing.T) {
 
 	wagerRepoMock := mock_wager.NewMockWagerRepository(ctrl)
 
-	var dbConn = sql.DB{}
 	testWagerService := &Service{
-		DatabaseConn: &dbConn,
-		wagerRepo:    wagerRepoMock,
+		wagerRepo: wagerRepoMock,
 	}
 
 	var req = &model.CreateWagerRequest{
@@ -37,10 +35,11 @@ func TestService_CreateWager(t *testing.T) {
 		SellingPrice:      100.20,
 	}
 	newWager := db.CreateWagerParams{
-		TotalWagerValue:   req.TotalWagerValue,
-		Odds:              req.Odds,
-		SellingPercentage: req.SellingPercentage,
-		SellingPrice:      req.SellingPrice,
+		TotalWagerValue:     req.TotalWagerValue,
+		Odds:                req.Odds,
+		SellingPercentage:   req.SellingPercentage,
+		SellingPrice:        req.SellingPrice,
+		CurrentSellingPrice: req.SellingPrice,
 	}
 	var now = time.Now()
 	dbResult := db.Wager{
@@ -49,7 +48,7 @@ func TestService_CreateWager(t *testing.T) {
 		Odds:                req.Odds,
 		SellingPercentage:   req.SellingPercentage,
 		SellingPrice:        req.SellingPrice,
-		CurrentSellingPrice: 0,
+		CurrentSellingPrice: req.SellingPrice,
 		PercentageSold:      sql.NullInt32{},
 		AmountSold:          sql.NullInt32{},
 		CreatedAt:           sql.NullTime{Time: now, Valid: true},
@@ -60,12 +59,12 @@ func TestService_CreateWager(t *testing.T) {
 		result, err := testWagerService.CreateWager(ctx, req)
 
 		assert.Nil(t, err, "Error should be nil")
-		assert.Equal(t, result.ID, 1111)
+		assert.Equal(t, result.ID, int32(1111))
 		assert.Equal(t, result.TotalWagerValue, req.TotalWagerValue)
 		assert.Equal(t, result.Odds, req.Odds)
 		assert.Equal(t, result.SellingPercentage, req.SellingPercentage)
 		assert.Equal(t, result.SellingPrice, req.SellingPrice)
-		assert.Equal(t, result.CurrentSellingPrice, 0.0)
+		assert.Equal(t, result.CurrentSellingPrice, req.SellingPrice)
 		assert.Equal(t, result.PercentageSold, int32(0))
 		assert.Equal(t, result.AmountSold, int32(0))
 		assert.Equal(t, result.PlacedAt, now)

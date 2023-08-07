@@ -2,7 +2,6 @@ package wager
 
 import (
 	"context"
-	"database/sql"
 	"errors"
 	"testing"
 	"time"
@@ -23,10 +22,8 @@ func TestService_ListWagers(t *testing.T) {
 
 	wagerRepoMock := mock_wager.NewMockWagerRepository(ctrl)
 
-	var dbConn = sql.DB{}
 	testWagerService := &Service{
-		DatabaseConn: &dbConn,
-		wagerRepo:    wagerRepoMock,
+		wagerRepo: wagerRepoMock,
 	}
 
 	t.Run("happy case", func(t *testing.T) {
