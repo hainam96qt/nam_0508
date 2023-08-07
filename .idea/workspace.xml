@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd895c5f-37c9-4a5b-a01f-dc8da530780e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/wager/api-create-wager.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/wager/api-create-wager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/wager/api-create-wager_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/wager/api-create-wager_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/wager/api-list-wager_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/wager/api-list-wager_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/midleware/midleware.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/20230805_INIT_DATA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/20230805_INIT_DATA.up.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/db/db.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
       <recent name="\\wsl$\Ubuntu-20.04\home\hainam96qt\ws\nam_0508\internal" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.api-create-wager_test.go">
+  <component name="RunManager" selected="Shell Script.start.sh">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="nam_0508" />
       <working_directory value="$PROJECT_DIR$" />
@@ -118,8 +114,24 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="start.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/start.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.start.sh" />
         <item itemvalue="Go Test.api-create-wager_test.go" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.api-create-purchase_test.go" />
