@@ -25,7 +25,7 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 		tx.Commit()
 	}(tx)
 
-	wagerDB, err := s.Query.WithTx(tx).GetWagerForUpdate(ctx, req.WagerID)
+	wagerDB, err := s.wagerRepo.GetWagerForUpdate(ctx, tx, req.WagerID)
 	if err != nil {
 		return nil, err
 	}
@@ -34,7 +34,7 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 		return nil, error2.NewXError("invalid selling percentage", http.StatusBadRequest)
 	}
 
-	err = s.Query.WithTx(tx).UpdatePurchaseWager(ctx, db.UpdatePurchaseWagerParams{
+	err = s.wagerRepo.UpdatePurchaseWager(ctx, tx, db.UpdatePurchaseWagerParams{
 		CurrentSellingPrice: req.BuyingPrice,
 		PercentageSold:      convert_type.NewNullInt32((wagerDB.AmountSold.Int32 + 1) / wagerDB.Odds),
 		AmountSold:          convert_type.NewNullInt32(wagerDB.AmountSold.Int32 + 1),
@@ -47,23 +47,13 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 		WagerID:     req.WagerID,
 		BuyingPrice: req.BuyingPrice,
 	}
-	err = s.Query.WithTx(tx).CreatePurchase(ctx, newPurchase)
-	if err != nil {
-		return nil, err
-	}
-
-	id, err := s.Query.WithTx(tx).LastInsertID(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	purchaseDB, err := s.Query.WithTx(tx).GetPurchase(ctx, int32(id))
+	purchaseDB, err := s.purchaseRepo.CreatePurchase(ctx, tx, newPurchase)
 	if err != nil {
 		return nil, err
 	}
 
 	return &model.CreatePurchaseResponse{
-		Purchase: convertPurchaseDBToAPI(purchaseDB),
+		Purchase: convertPurchaseDBToAPI(*purchaseDB),
 	}, nil
 }
 

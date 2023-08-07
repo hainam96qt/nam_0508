@@ -1,26 +1,28 @@
 package wager
 
 import (
+	"context"
 	"database/sql"
 
-	"nam_0508/internal/config"
 	db "nam_0508/internal/repo/dbmodel"
 )
 
 type (
 	Service struct {
-		conf *configs.Config
-
 		DatabaseConn *sql.DB
-		Query        *db.Queries
+
+		wagerRepo WagerRepository
+	}
+
+	WagerRepository interface {
+		ListWagers(ctx context.Context, params db.ListWagersParams) ([]db.Wager, error)
+		CreateWager(ctx context.Context, wager db.CreateWagerParams) (*db.Wager, error)
 	}
 )
 
-func NewWagerService(conf *configs.Config, DatabaseConn *sql.DB) *Service {
-	query := db.New(DatabaseConn)
+func NewWagerService(DatabaseConn *sql.DB, wagerRepo WagerRepository) *Service {
 	return &Service{
-		conf:         conf,
 		DatabaseConn: DatabaseConn,
-		Query:        query,
+		wagerRepo:    wagerRepo,
 	}
 }

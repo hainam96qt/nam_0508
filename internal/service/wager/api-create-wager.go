@@ -23,23 +23,13 @@ func (s *Service) CreateWager(ctx context.Context, req *model.CreateWagerRequest
 		SellingPrice:        req.SellingPrice,
 		CurrentSellingPrice: req.CurrentSellingPrice,
 	}
-	err := s.Query.CreateWager(ctx, newWager)
-	if err != nil {
-		return nil, err
-	}
-
-	id, err := s.Query.LastInsertID(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	newWagerDB, err := s.Query.GetWager(ctx, int32(id))
+	newWagerDB, err := s.wagerRepo.CreateWager(ctx, newWager)
 	if err != nil {
 		return nil, err
 	}
 
 	return &model.CreateWagerResponse{
-		Wager: convertWagerDBToAPI(newWagerDB),
+		Wager: convertWagerDBToAPI(*newWagerDB),
 	}, nil
 }
 

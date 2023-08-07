@@ -9,7 +9,7 @@ import (
 
 func (s *Service) ListWagers(ctx context.Context, req *model.ListWagerRequest) (*model.ListWagerResponse, error) {
 	// validate
-	wagers, err := s.Query.ListWagers(ctx, db.ListWagersParams{
+	wagers, err := s.wagerRepo.ListWagers(ctx, db.ListWagersParams{
 		Limit:  int32(req.Limit),
 		Offset: int32((req.Page - 1) * req.Limit),
 	})

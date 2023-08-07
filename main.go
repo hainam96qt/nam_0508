@@ -15,6 +15,8 @@ import (
 	"nam_0508/internal/config"
 	"nam_0508/internal/endpoint/purchase"
 	wager2 "nam_0508/internal/endpoint/wager"
+	purchase3 "nam_0508/internal/repo/purchase"
+	wager3 "nam_0508/internal/repo/wager"
 	purchase2 "nam_0508/internal/service/purchase"
 	"nam_0508/internal/service/wager"
 	"nam_0508/pkg/db/mysql_db"
@@ -25,7 +27,7 @@ func main() {
 	defer func() {
 		log.Printf("application stopped after %s\n", time.Since(startedAt))
 	}()
-	
+
 	conf, err := configs.NewConfig()
 	if err != nil {
 		log.Print(err)
@@ -75,9 +77,13 @@ func initHTTPServer(ctx context.Context, conf *configs.Config) (httpServer *http
 		return
 	}
 
+	// repository
+	purchaseRepo := purchase3.NewMysqlRepository(dbConn)
+	wagerRepo := wager3.NewMysqlRepository(dbConn)
+
 	// service
-	wagerSvc := wager.NewWagerService(conf, dbConn)
-	purchaseSvc := purchase2.NewPurchaseService(conf, dbConn)
+	wagerSvc := wager.NewWagerService(dbConn, wagerRepo)
+	purchaseSvc := purchase2.NewPurchaseService(dbConn, purchaseRepo, wagerRepo)
 
 	// handler
 	wager2.InitWagerHandler(r, wagerSvc)

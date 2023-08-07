@@ -1,26 +1,34 @@
 package purchase
 
 import (
+	"context"
 	"database/sql"
 
-	"nam_0508/internal/config"
 	db "nam_0508/internal/repo/dbmodel"
 )
 
 type (
 	Service struct {
-		conf *configs.Config
-
 		DatabaseConn *sql.DB
-		Query        *db.Queries
+
+		purchaseRepo PurchaseRepository
+		wagerRepo    WagerRepository
+	}
+
+	PurchaseRepository interface {
+		CreatePurchase(ctx context.Context, tx *sql.Tx, purchase db.CreatePurchaseParams) (*db.Purchase, error)
+	}
+
+	WagerRepository interface {
+		UpdatePurchaseWager(ctx context.Context, tx *sql.Tx, updateWagerParams db.UpdatePurchaseWagerParams) error
+		GetWagerForUpdate(ctx context.Context, tx *sql.Tx, wagerID int32) (*db.Wager, error)
 	}
 )
 
-func NewPurchaseService(conf *configs.Config, DatabaseConn *sql.DB) *Service {
-	query := db.New(DatabaseConn)
+func NewPurchaseService(DatabaseConn *sql.DB, purchaseRepo PurchaseRepository, wagerRepo WagerRepository) *Service {
 	return &Service{
-		conf:         conf,
 		DatabaseConn: DatabaseConn,
-		Query:        query,
+		purchaseRepo: purchaseRepo,
+		wagerRepo:    wagerRepo,
 	}
 }
