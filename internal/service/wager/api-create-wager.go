@@ -17,11 +17,10 @@ func (s *Service) CreateWager(ctx context.Context, req *model.CreateWagerRequest
 	}
 
 	newWager := db.CreateWagerParams{
-		TotalWagerValue:     req.TotalWagerValue,
-		Odds:                req.Odds,
-		SellingPercentage:   req.SellingPercentage,
-		SellingPrice:        req.SellingPrice,
-		CurrentSellingPrice: req.CurrentSellingPrice,
+		TotalWagerValue:   req.TotalWagerValue,
+		Odds:              req.Odds,
+		SellingPercentage: req.SellingPercentage,
+		SellingPrice:      req.SellingPrice,
 	}
 	newWagerDB, err := s.wagerRepo.CreateWager(ctx, newWager)
 	if err != nil {
@@ -44,7 +43,7 @@ func validateWager(req *model.CreateWagerRequest) error {
 		return error2.NewXError("invalid selling percentage", http.StatusBadRequest)
 	}
 	if req.SellingPrice < float64(req.TotalWagerValue)*(float64(req.SellingPercentage)/100) {
-		return error2.NewXError("invalid SellingPrice", http.StatusBadRequest)
+		return error2.NewXError("invalid selling price", http.StatusBadRequest)
 	}
 	return nil
 }

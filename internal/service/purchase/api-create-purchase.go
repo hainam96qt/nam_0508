@@ -30,8 +30,8 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 		return nil, err
 	}
 
-	if req.BuyingPrice > wagerDB.CurrentSellingPrice {
-		return nil, error2.NewXError("invalid selling percentage", http.StatusBadRequest)
+	if req.BuyingPrice <= wagerDB.CurrentSellingPrice {
+		return nil, error2.NewXError("invalid buy price", http.StatusBadRequest)
 	}
 
 	err = s.wagerRepo.UpdatePurchaseWager(ctx, tx, db.UpdatePurchaseWagerParams{

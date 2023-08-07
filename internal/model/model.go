@@ -24,13 +24,10 @@ type Wager struct {
 }
 
 type CreateWagerRequest struct {
-	TotalWagerValue     int32   `json:"total_wager_value"`
-	Odds                int32   `json:"odds"`
-	SellingPercentage   int32   `json:"selling_percentage"`
-	SellingPrice        float64 `json:"selling_price"`
-	CurrentSellingPrice float64 `json:"current_selling_price"`
-	PercentageSold      int32   `json:"percentage_sold"`
-	AmountSold          int32   `json:"amount_sold"`
+	TotalWagerValue   int32   `json:"total_wager_value"`
+	Odds              int32   `json:"odds"`
+	SellingPercentage int32   `json:"selling_percentage"`
+	SellingPrice      float64 `json:"selling_price"`
 }
 
 type CreateWagerResponse struct {
