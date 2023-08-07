@@ -1,0 +1,26 @@
+server:
+  address: ":8000"
+  readTimeout: "30s"
+  writeTimeout: "30s"
+  shutdownTimeout: "10s"
+  cors:
+    allowOrigins:
+      - "http://*"
+      - "https://*"
+    allowMethods: [ "OPTIONS", "HEAD", "POST", "GET", "PATCH", "DELETE" ]
+    allowHeaders:
+      - Content-Type
+      - Accept
+      - Accept-Language
+      - Authorization
+      - X-Request-Id
+  responseLogLimitByte: 10000
+  uploadSizeLimitByte: 5242880
+
+mysql:
+  host: mysql-db
+  port: 3306
+  database: nam_0508
+  user: root
+  password: mysql_db
+
