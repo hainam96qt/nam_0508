@@ -7,7 +7,7 @@ package mock_purchase
 import (
 	context "context"
 	sql "database/sql"
-	dbmodel "nam_0508/internal/repo/dbmodel"
+	db "nam_0508/internal/repo/dbmodel"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
@@ -36,11 +36,26 @@ func (m *MockPurchaseRepository) EXPECT() *MockPurchaseRepositoryMockRecorder {
 	return m.recorder
 }
 
+// BeginTx mocks base method.
+func (m *MockPurchaseRepository) BeginTx(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "BeginTx", ctx, opts)
+	ret0, _ := ret[0].(*sql.Tx)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// BeginTx indicates an expected call of BeginTx.
+func (mr *MockPurchaseRepositoryMockRecorder) BeginTx(ctx, opts interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BeginTx", reflect.TypeOf((*MockPurchaseRepository)(nil).BeginTx), ctx, opts)
+}
+
 // CreatePurchase mocks base method.
-func (m *MockPurchaseRepository) CreatePurchase(ctx context.Context, tx *sql.Tx, purchase dbmodel.CreatePurchaseParams) (*dbmodel.Purchase, error) {
+func (m *MockPurchaseRepository) CreatePurchase(ctx context.Context, tx *sql.Tx, purchase db.CreatePurchaseParams) (*db.Purchase, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CreatePurchase", ctx, tx, purchase)
-	ret0, _ := ret[0].(*dbmodel.Purchase)
+	ret0, _ := ret[0].(*db.Purchase)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -75,10 +90,10 @@ func (m *MockWagerRepository) EXPECT() *MockWagerRepositoryMockRecorder {
 }
 
 // GetWagerForUpdate mocks base method.
-func (m *MockWagerRepository) GetWagerForUpdate(ctx context.Context, tx *sql.Tx, wagerID int32) (*dbmodel.Wager, error) {
+func (m *MockWagerRepository) GetWagerForUpdate(ctx context.Context, tx *sql.Tx, wagerID int32) (*db.Wager, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetWagerForUpdate", ctx, tx, wagerID)
-	ret0, _ := ret[0].(*dbmodel.Wager)
+	ret0, _ := ret[0].(*db.Wager)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -90,7 +105,7 @@ func (mr *MockWagerRepositoryMockRecorder) GetWagerForUpdate(ctx, tx, wagerID in
 }
 
 // UpdatePurchaseWager mocks base method.
-func (m *MockWagerRepository) UpdatePurchaseWager(ctx context.Context, tx *sql.Tx, updateWagerParams dbmodel.UpdatePurchaseWagerParams) error {
+func (m *MockWagerRepository) UpdatePurchaseWager(ctx context.Context, tx *sql.Tx, updateWagerParams db.UpdatePurchaseWagerParams) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "UpdatePurchaseWager", ctx, tx, updateWagerParams)
 	ret0, _ := ret[0].(error)

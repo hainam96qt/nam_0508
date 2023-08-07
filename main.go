@@ -82,7 +82,7 @@ func initHTTPServer(ctx context.Context, conf *configs.Config) (httpServer *http
 	wagerRepo := wager3.NewMysqlRepository(dbConn)
 
 	// service
-	wagerSvc := wager.NewWagerService(dbConn, wagerRepo)
+	wagerSvc := wager.NewWagerService(wagerRepo)
 	purchaseSvc := purchase2.NewPurchaseService(dbConn, purchaseRepo, wagerRepo)
 
 	// handler

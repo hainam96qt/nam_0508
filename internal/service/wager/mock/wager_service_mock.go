@@ -6,7 +6,7 @@ package mock_wager
 
 import (
 	context "context"
-	dbmodel "nam_0508/internal/repo/dbmodel"
+	db "nam_0508/internal/repo/dbmodel"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
@@ -36,10 +36,10 @@ func (m *MockWagerRepository) EXPECT() *MockWagerRepositoryMockRecorder {
 }
 
 // CreateWager mocks base method.
-func (m *MockWagerRepository) CreateWager(ctx context.Context, wager dbmodel.CreateWagerParams) (*dbmodel.Wager, error) {
+func (m *MockWagerRepository) CreateWager(ctx context.Context, wager db.CreateWagerParams) (*db.Wager, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CreateWager", ctx, wager)
-	ret0, _ := ret[0].(*dbmodel.Wager)
+	ret0, _ := ret[0].(*db.Wager)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -51,10 +51,10 @@ func (mr *MockWagerRepositoryMockRecorder) CreateWager(ctx, wager interface{}) *
 }
 
 // ListWagers mocks base method.
-func (m *MockWagerRepository) ListWagers(ctx context.Context, params dbmodel.ListWagersParams) ([]dbmodel.Wager, error) {
+func (m *MockWagerRepository) ListWagers(ctx context.Context, params db.ListWagersParams) ([]db.Wager, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListWagers", ctx, params)
-	ret0, _ := ret[0].([]dbmodel.Wager)
+	ret0, _ := ret[0].([]db.Wager)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

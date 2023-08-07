@@ -2,15 +2,12 @@ package wager
 
 import (
 	"context"
-	"database/sql"
 
 	db "nam_0508/internal/repo/dbmodel"
 )
 
 type (
 	Service struct {
-		DatabaseConn *sql.DB
-
 		wagerRepo WagerRepository
 	}
 
@@ -20,9 +17,8 @@ type (
 	}
 )
 
-func NewWagerService(DatabaseConn *sql.DB, wagerRepo WagerRepository) *Service {
+func NewWagerService(wagerRepo WagerRepository) *Service {
 	return &Service{
-		DatabaseConn: DatabaseConn,
-		wagerRepo:    wagerRepo,
+		wagerRepo: wagerRepo,
 	}
 }

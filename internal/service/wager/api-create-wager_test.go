@@ -60,6 +60,7 @@ func TestService_CreateWager(t *testing.T) {
 		result, err := testWagerService.CreateWager(ctx, req)
 
 		assert.Nil(t, err, "Error should be nil")
+		assert.Equal(t, result.ID, 1111)
 		assert.Equal(t, result.TotalWagerValue, req.TotalWagerValue)
 		assert.Equal(t, result.Odds, req.Odds)
 		assert.Equal(t, result.SellingPercentage, req.SellingPercentage)

@@ -10,8 +10,6 @@ import (
 )
 
 func (s *Service) CreateWager(ctx context.Context, req *model.CreateWagerRequest) (*model.CreateWagerResponse, error) {
-	// validate
-
 	if err := validateWager(req); err != nil {
 		return nil, err
 	}
