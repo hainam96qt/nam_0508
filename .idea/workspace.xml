@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd895c5f-37c9-4a5b-a01f-dc8da530780e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/20230805_INIT_DATA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/20230805_INIT_DATA.up.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,7 @@
     "last_opened_file_path": "//wsl$/Ubuntu-20.04/home/hainam96qt/ws/nam_0508/internal/service/wager",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.CSS"
   }
 }]]></component>
