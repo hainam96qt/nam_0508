@@ -2,7 +2,7 @@ package error
 
 type XError struct {
 	ErrorMessage string `json:"error"`
-	HTTPStatus   int
+	HTTPStatus   int    `json:"-"`
 }
 
 func (e XError) Error() string {
