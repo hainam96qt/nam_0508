@@ -39,7 +39,7 @@ func TestService_CreatePurchase_HappyCase(t *testing.T) {
 		var purchaseTime = wagerTime.Add(100 * time.Second)
 		req := &model.CreatePurchaseRequest{
 			WagerID:     1111,
-			BuyingPrice: 10000,
+			BuyingPrice: 1000,
 		}
 		dbWagerResult := db.Wager{
 			ID:                  1111,
@@ -105,7 +105,7 @@ func TestService_CreatePurchase_InvalidBuyPrice(t *testing.T) {
 		var wagerTime = time.Now()
 		req := &model.CreatePurchaseRequest{
 			WagerID:     1111,
-			BuyingPrice: 1000, // lesser than currently price
+			BuyingPrice: 10000, // bigger than currently price
 		}
 		dbWagerResult := db.Wager{
 			ID:                  1111,
@@ -149,7 +149,7 @@ func TestService_CreatePurchase_FailedUpdate(t *testing.T) {
 		var wagerTime = time.Now()
 		req := &model.CreatePurchaseRequest{
 			WagerID:     1111,
-			BuyingPrice: 10000,
+			BuyingPrice: 1000,
 		}
 		dbWagerResult := db.Wager{
 			ID:                  1111,
@@ -198,7 +198,7 @@ func TestService_CreatePurchase_FailedCreate(t *testing.T) {
 		var wagerTime = time.Now()
 		req := &model.CreatePurchaseRequest{
 			WagerID:     1111,
-			BuyingPrice: 10000,
+			BuyingPrice: 1000,
 		}
 		dbWagerResult := db.Wager{
 			ID:                  1111,

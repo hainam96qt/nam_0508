@@ -30,7 +30,7 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 		return nil, err
 	}
 
-	if req.BuyingPrice <= wagerDB.CurrentSellingPrice {
+	if req.BuyingPrice > wagerDB.CurrentSellingPrice {
 		return nil, error2.NewXError("invalid buy price", http.StatusBadRequest)
 	}
 
