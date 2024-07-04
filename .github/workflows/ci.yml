@@ -24,16 +24,11 @@ jobs:
       - name: Install dependencies
         run: go mod download
 
-      - name: Install golangci-lint
-        run: go get github.com/golangci/golangci-lint/cmd/golangci-lint
-
-  build:
-    needs: setup-env
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Format code
         run: go fmt ./...
+        
+      - name: Install golangci-lint
+        run: go get github.com/golangci/golangci-lint/cmd/golangci-lint
 
       - name: Run golangci-lint
         run: golangci-lint run ./...
