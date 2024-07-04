@@ -21,7 +21,7 @@ func JSON(w http.ResponseWriter, status int, data interface{}) {
 
 func Error(w http.ResponseWriter, err interface{}) {
 	switch err.(type) {
-	case error2.XError:
+	case *error2.XError:
 		w.WriteHeader(err.(error2.XError).GetHTTPStatus())
 	default:
 		w.WriteHeader(http.StatusInternalServerError)
