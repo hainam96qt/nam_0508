@@ -68,7 +68,7 @@ func initHTTPServer(ctx context.Context, conf *configs.Config) (httpServer *http
 
 	// create endpoint here
 	r.Get("/hello", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
+		_, err = w.Write([]byte("welcome"))
 	})
 
 	dbConn, err := mysql_db.ConnectDatabase(conf.Mysqldb)

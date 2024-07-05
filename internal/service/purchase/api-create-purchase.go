@@ -19,10 +19,10 @@ func (s *Service) CreatePurchase(ctx context.Context, req *model.CreatePurchaseR
 	defer func(tx *sql.Tx) {
 		if r := recover(); r != nil {
 			err, _ = r.(error)
-			tx.Rollback()
+			err = tx.Rollback()
 			return
 		}
-		tx.Commit()
+		err = tx.Commit()
 	}(tx)
 
 	wagerDB, err := s.wagerRepo.GetWagerForUpdate(ctx, tx, req.WagerID)
