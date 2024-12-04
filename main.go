@@ -24,6 +24,7 @@ import (
 
 func main() {
 	startedAt := time.Now()
+	_ = startedAt
 	defer func() {
 		log.Printf("application stopped after %s\n", time.Since(startedAt))
 	}()
